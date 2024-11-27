@@ -22,7 +22,10 @@ The code defines an API with the following functionality:
 - go mod init receipt-process-api
 - go mod tidy
 
-### 3. Open docker desktop(make sure the docker daemon is running)
+## 3a. Run using go (call this then api starts)
+- go run main.go
+
+### 3b. Open docker desktop(make sure the docker daemon is running)
 
 ### 4. Build the Docker Image
 
