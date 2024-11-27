@@ -1,4 +1,4 @@
-# Go API with Docker Setup
+# Receipt Processor Go API with Docker Setup
 
 This repository contains a Go-based API that processes receipts and calculates points. It is containerized using Docker.
 
