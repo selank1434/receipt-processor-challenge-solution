@@ -140,7 +140,7 @@ func calculateTotalPoints(receipt Receipt) int {
 func uniqueReceiptUUID() string {
 	for {
 		newUUID := uuid.New().String()
-
+		
 		if _, exists := receiptPointsMap[newUUID]; !exists {
 			return newUUID
 		}
