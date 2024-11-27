@@ -21,7 +21,6 @@ The code defines an API with the following functionality:
 ### 2. Build using go 
 - go mod init receipt-process-api
 - go mod tidy
-- go get github.com/google/uuid
 
 ### 3. Open docker desktop(make sure the docker daemon is running)
 
