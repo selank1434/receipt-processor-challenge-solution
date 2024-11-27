@@ -37,7 +37,6 @@ var receiptPointsMap = make(map[string]int)
 func pointsForRetailerName(retailerName string) int {
 	re := regexp.MustCompile(`[^a-zA-Z0-9]`)
 	strippedName := re.ReplaceAllString(retailerName, "")
-	fmt.Println("Stripped name:",strippedName, "length", len(strippedName))
 	return len(strippedName)
 }
 
@@ -126,7 +125,7 @@ func pointsForPurchaseTime(purchaseTime string)int{
 }
 
 
-
+// Function that returns total points
 func calculateTotalPoints(receipt Receipt) int {
 	return pointsForPurchaseTime(receipt.PurchaseTime) +
 		pointsForOddDay(receipt.PurchaseDate) +
@@ -137,6 +136,17 @@ func calculateTotalPoints(receipt Receipt) int {
 		pointsForReceiptTotal(receipt.Total)
 }
 
+// Function to generate a unique UUID that is not already in the receiptPointsMap
+func uniqueReceiptUUID() string {
+	for {
+		newUUID := uuid.New().String()
+
+		if _, exists := receiptPointsMap[newUUID]; !exists {
+			return newUUID
+		}
+	
+	}
+}
 
 
 
@@ -153,7 +163,7 @@ func main() {
 				http.Error(w, "Failed to parse receipt JSON", http.StatusBadRequest)
 				return
 			}
-			receiptID := uuid.New().String()
+			receiptID := uniqueReceiptUUID()
 			totalPoints:=calculateTotalPoints(receipt)
 			receiptPointsMap[receiptID] = totalPoints
 			response := ReceiptResponse{
