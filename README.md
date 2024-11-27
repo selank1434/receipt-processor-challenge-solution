@@ -27,7 +27,7 @@ The code defines an API with the following functionality:
 
 ### 4. Build the Docker Image
 
-docker build -t receipt-process-api.
+docker build -t receipt-process-api .
 
 ### 5. Start up the API using docker 
 
