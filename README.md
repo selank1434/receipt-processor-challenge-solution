@@ -19,7 +19,6 @@ The code defines an API with the following functionality:
 ### 1. Clone the Repository
 
 ### 2. Build using go 
-- go get github.com/google/uuid
 - go mod init receipt-process-api
 - go mod tidy
 
